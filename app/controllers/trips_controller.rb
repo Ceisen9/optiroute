@@ -12,6 +12,10 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def add_destination
+
+  end
+
   private
   def trip_params
     params.require(:trip).permit(:name, :duration)
