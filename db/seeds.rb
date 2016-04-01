@@ -24,4 +24,3 @@ route1.itineraries.create(destination: ww2_memorial)
 route1.itineraries.create(destination: us_capitol)
 route1.itineraries.create(destination: national_mall)
 route1.itineraries.create(destination: spy_museum)
-
