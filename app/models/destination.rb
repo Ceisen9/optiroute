@@ -1,4 +1,4 @@
 class Destination < ActiveRecord::Base
 
-  belongs_to :trip
+  has_many :trips, through: :itineraries
 end
