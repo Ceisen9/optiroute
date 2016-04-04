@@ -14,7 +14,10 @@ class TripsController < ApplicationController
   end
 
   def show
-    render json: @trip, status: :ok
+    respond_to do |format|
+      format.html
+      format.json{ render json: @trip, status: :ok }
+    end
   end
 
   def create
