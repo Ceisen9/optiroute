@@ -28,6 +28,12 @@
         templateUrl: "ng-views/destinations.index.html",
         controller: "destinationsIndexCtrl",
         controllerAs: "destinationsIndexVM"
-      });
+      })
+      .state("tripShow", {
+        url: "/trips/new",
+        templateUrl: "ng-views/trips.form.html",
+        controller: "tripFormController",
+        controllerAs: "tripFormVM"
+      })
   }
 })();
