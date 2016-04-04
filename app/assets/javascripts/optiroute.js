@@ -34,6 +34,9 @@
         templateUrl: "ng-views/trips.form.html",
         controller: "tripFormController",
         controllerAs: "tripFormVM"
+<<<<<<< HEAD
+      });
+=======
       })
       .state("tripsShow", {
         url: "/trips/:id",
@@ -41,5 +44,6 @@
         controller: "tripsShowCtrl",
         controllerAs: "tripsShowVM"
       })
+>>>>>>> master
   }
 })();
