@@ -10,4 +10,4 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w( optiroute.js )
+Rails.application.config.assets.precompile += %w( destinations.js optiroute.js trips.controller.js trips.factory.js trips.js )
