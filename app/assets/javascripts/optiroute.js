@@ -34,16 +34,12 @@
         templateUrl: "ng-views/trips.form.html",
         controller: "tripFormController",
         controllerAs: "tripFormVM"
-<<<<<<< HEAD
-      });
-=======
       })
       .state("tripsShow", {
         url: "/trips/:id",
         templateUrl: "ng-views/trips.show.html",
         controller: "tripsShowCtrl",
         controllerAs: "tripsShowVM"
-      })
->>>>>>> master
+      });
   }
 })();
