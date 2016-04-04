@@ -42,5 +42,4 @@
         controllerAs: "tripsShowVM"
       });
     }
-  }
 })();
