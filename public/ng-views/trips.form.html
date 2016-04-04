@@ -1,0 +1,22 @@
+<div data-ng-switch="formMethod">
+  <h2 data-ng-switch-when="edit">Edit this Trip</h2>
+  <h2 data-ng-switch-default>Create your Trip</h2>
+</div>
+
+<fieldset class="input-group">
+  <input type="text" class="form-control" data-ng-model="trip.name" id="name" />
+  <label for="name">Trip Name</label>
+</fieldset>
+
+<div class="container">
+  <form role="form">
+    <div class="checkbox" data-ng-repeat="destination in destinationsIndexVM.destinations">
+      <label><input type="checkbox" value="destination.id">{{destination.name}}</label>
+    </div>
+  </form>
+</div>
+
+<div data-ng-switch="formMethod">
+  <button data-ng-switch-when="edit" type="button" class="btn btn-primary btn-block" data-ng-click="update()">Edit</button>
+  <button data-ng-switch-default type="button" class="btn btn-primary btn-block" data-ng-click="create()">Submit</button>
+</div>
