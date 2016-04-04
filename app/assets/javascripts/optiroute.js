@@ -34,6 +34,6 @@
         templateUrl: "ng-views/trips.form.html",
         controller: "tripFormController",
         controllerAs: "tripFormVM"
-      })
+      });
   }
 })();
