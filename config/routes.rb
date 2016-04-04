@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   resources :destinations
+  resources :itineraries, only: [:index]
 end
