@@ -4,26 +4,14 @@
   angular.module("destinations", [
     "ngResource"
   ])
-  .factory("DestinationFactory", [
-    "$resource",
-    DestinationFactoryFunction
-  ])
   .controller("destinationsIndexCtrl", [
-    "DestinationFactory",
+    "DestFactory",
     "$stateParams",
     destinationsIndexCtrlFunction
   ])
 
-  function DestinationFactoryFunction($resource) {
-    var Destination = $resource("/destinations/:id.json", {}, {
-      update: {method: "PUT"}
-    });
-    Destination.all = Destination.query();
-    return Destination;
-  }
-
-  function destinationsIndexCtrlFunction(DestinationFactory, $stateParams) {
-    this.destinations = DestinationFactory.all;
+  function destinationsIndexCtrlFunction(DestFactory, $stateParams) {
+    this.destinations = DestinationFactory.query();
   }
 
 
