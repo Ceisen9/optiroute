@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :trips do
     member do
       post "add_destination"
+    end
   end
 
   resources :destinations
