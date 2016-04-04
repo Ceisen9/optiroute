@@ -9,9 +9,9 @@
       ]);
 
     function DestFactoryFunc($resource){
-      DestinationFactory = $resource("/destinations/:id.json");
-      Destination.all = DestinationFactory.query();
-      return Destination;
+      var DestinationFactory = $resource("/destinations/:id.json");
+      DestinationFactory.all = DestinationFactory.query();
+      return DestinationFactory;
     }
 
 })();
