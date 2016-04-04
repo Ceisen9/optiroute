@@ -9,9 +9,11 @@
       ]);
 
     function TripFactoryFunc($resource){
-      return $resource("/trips/:id.json", {}, {
+      TripFactory = $resource("/trips/:id.json", {}, {
         update: {method: 'PUT'}
       });
+      TripFactory.all = TripFactory.query();
+      return TripFactory;
     }
 
 })();
