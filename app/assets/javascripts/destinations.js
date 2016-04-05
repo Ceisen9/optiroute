@@ -5,12 +5,12 @@
     "ngResource"
   ])
   .controller("destinationsIndexCtrl", [
-    "DestFactory",
+    "DestinationFactory",
     "$stateParams",
     destinationsIndexCtrlFunction
   ])
 
-  function destinationsIndexCtrlFunction(DestFactory, $stateParams) {
+  function destinationsIndexCtrlFunction(DestinationFactory, $stateParams) {
     this.destinations = DestinationFactory.query();
   }
 
