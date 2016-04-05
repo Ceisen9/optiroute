@@ -24,14 +24,12 @@
         // Placeholder until trip<->destination associations setup
         scope.create = function(){
           var destinations = scope.trip.selectedDestinations;
-          var newItinerary = new ItineraryFactory();
           scope.trip.$save().then(function(response) {
             for (var id in destinations) {
               if (destinations[id]) {
-                newItinerary.$save({trip_id: response.id, destination_id: id}, function(data) {
+                ItineraryFactory.save({trip_id: response.id, destination_id: id}, function(data) {
                   console.log(data);
                 });
-
               }
             }
           });
