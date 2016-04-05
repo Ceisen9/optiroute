@@ -1,6 +1,6 @@
 <h1> These are some Trips</h1>
 
 <div data-ng-repeat="trip in tripsIndexVM.trips | orderBy:'-created_at'">
-  <!-- <p><a data-ui-sref="tripsShow({id: trip.id})">{{trip.name}}</a></p> -->
-  <p>{{trip.name}}</p>
+  <p><a data-ui-sref="tripsShow({id: trip.id})">{{trip.name}}</a></p>
+  <!-- <p>{{trip.name}}</p> -->
 </div>

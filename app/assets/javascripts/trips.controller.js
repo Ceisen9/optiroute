@@ -10,8 +10,8 @@
     ]);
 
     function tripsIndexCtrlFunction(TripFactory, ItineraryFactory, DestFactory) {
-      // this.trips = TripFactory.all;
+      this.trips = TripFactory.all;
 
-      
+
     }
 })();

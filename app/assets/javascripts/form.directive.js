@@ -3,7 +3,7 @@
 
     angular
       .module("trips")
-      .directive("tripForm", [
+      .directive("tripFormController", [
         "TripFactory",
         "$state",
         tripFormFunc
