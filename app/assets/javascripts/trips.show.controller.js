@@ -13,8 +13,6 @@
       var tripsShowVM = this;
       TripFactory.all.$promise.then(function(){
         TripFactory.all.forEach(function(trip) {
-          console.log(trip);
-          console.log($stateParams);
           if(trip.id == $stateParams.id) {
             tripsShowVM.trip = trip;
           }
@@ -23,10 +21,17 @@
 
       tripsShowVM.delete = function() {
         tripsShowVM.trip = TripFactory.get({id: $stateParams.id});
-        TripFactory.all.splice(TripFactory.all.indexOf(tripsShowVM.trip), 1);
-        tripsShowVM.trip.$delete({id: $stateParams.id}).then(function() {
+        var index;
+        for (var i = 0; i < TripFactory.all.length; i++) {
+          if ($stateParams.id == TripFactory.all[i].id){
+            index = i;
+            break;
+          }
+        }
+        tripsShowVM.trip.$delete({id: $stateParams.id}, function() {
+          TripFactory.all.splice(index, 1);
           $state.go("tripsIndex", {}, {reload: true});
         });
-      }
+      };
     }
 })();
