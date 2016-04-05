@@ -10,13 +10,13 @@
 
 <div class="container">
   <form role="form">
-    <div class="checkbox" data-ng-repeat="destination in tripFormVM.destinations">
-      <label><input type="checkbox" value="destination.id" data-ng-model="tripFormVM.selectedDestinations[destination.id]" >{{destination.name}}</label>
+    <div class="checkbox" data-ng-repeat="destination in destinations">
+      <label><input type="checkbox" value="destination.id" data-ng-model="trip.selectedDestinations[destination.id]" >{{destination.name}}</label>
     </div>
   </form>
 </div>
 
-<div>test: {{tripFormVM.selectedDestinations}}</div>
+<div>test: {{trip.selectedDestinations}}</div>
 
 <div data-ng-switch="formMethod">
   <button data-ng-switch-when="edit" type="button" class="btn btn-primary btn-block" data-ng-click="update()">Edit</button>

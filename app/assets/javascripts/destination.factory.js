@@ -3,12 +3,12 @@
 
     angular
       .module("optiroute")
-      .factory("DestFactory", [
+      .factory("DestinationFactory", [
         "$resource",
-        DestFactoryFunc
+        DestinationFactoryFunc
       ]);
 
-    function DestFactoryFunc($resource){
+    function DestinationFactoryFunc($resource){
       var DestinationFactory = $resource("/destinations/:id.json");
       DestinationFactory.all = DestinationFactory.query();
       return DestinationFactory;
