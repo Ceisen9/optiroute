@@ -11,8 +11,8 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinierary = Itinerary.create!(itinerary_params)
-    render json: @trip, status: :ok
+    @itinerary = Itinerary.create!(itinerary_params)
+    render json: @itinerary, status: :ok
   end
 
   def destroy
