@@ -1,3 +1,4 @@
+
 <div data-ng-switch="formMethod">
   <h2 data-ng-switch-when="edit">Edit this Trip</h2>
   <h2 data-ng-switch-default>Create your Trip</h2>
@@ -5,20 +6,54 @@
 
 <fieldset class="input-group">
   <input type="text" class="form-control" data-ng-model="trip.name" id="name" />
-  <label for="name">Trip Name</label>
+  <label for="name">Trip Name*</label>
 </fieldset>
 
 <div class="container">
   <form role="form">
     <div class="checkbox" data-ng-repeat="destination in destinations">
-      <label><input type="checkbox" value="destination.id" data-ng-model="trip.selectedDestinations[destination.id]" >{{destination.name}}</label>
+      <label>
+        <input type="checkbox" value="destination.id" data-ng-model="trip.selectedDestinations[destination.id]" >{{destination.name}}</input>
+      </label>
+
     </div>
   </form>
 </div>
 
 <div>test: {{trip.selectedDestinations}}</div>
+<div>Start: {{trip.selectedStart}}</div>
+<div>End: {{trip.selectedEnd}}</div>
 
 <div data-ng-switch="formMethod">
   <button data-ng-switch-when="edit" type="button" class="btn btn-primary btn-block" data-ng-click="update()">Edit</button>
   <button data-ng-switch-default type="button" class="btn btn-primary btn-block" data-ng-click="create()">Submit</button>
 </div>
+
+<!-- <div>
+  <h2>Create your Trip</h2>
+</div>
+<fieldset class="input-group">
+  <input type="text" class="form-control" data-ng-model="trip.name" id="name" />
+  <label for="name">Trip Name</label>
+</fieldset>
+<div>
+   <b>Start:</b>
+   <select id="start">
+     <option data-ng-repeat="destination in destinations" value="destination.id">{{destination.name}}</option>
+   </select>
+   <br>
+   <b>Waypoints:</b> <br>
+   <i>(Ctrl-Click for multiple selection)</i> <br>
+   <select multiple id="waypoints">
+     <option data-ng-repeat="destination in destinations" value="destination.id">{{destination.name}}</option>
+   </select>
+   <br>
+   <b>End:</b>
+   <select id="end">
+     <option  data-ng-repeat="destination in destinations" value="destination.id">{{destination.name}}</option>
+   </select>
+   <br>
+     <input type="submit" id="submit">
+   </div>
+   <div id="directions-panel"></div>
+   </div> -->

@@ -12,3 +12,15 @@
  *
  *= require_self
  */
+
+#map {
+  height: 600px;
+  width: 600px;
+}
+
+#directions-panel {
+  height: 500px;
+  width: 300px;
+  float: right;
+  overflow-y: scroll;
+}

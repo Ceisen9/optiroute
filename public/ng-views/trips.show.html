@@ -1,9 +1,22 @@
 <h1> Trip show page </h1>
 
 <h3> {{tripsShowVM.trip.name}} </h3>
-<div data-ng-repeat="destination in tripsShowVM.trip.destinations">
+<h4>Start</h4>
+<select id="waypoints" data-ng-model="tripsShowVM.trip.start">
+    <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
+</select>
+<h4>End</h4>
+<select id="waypoints" data-ng-model="tripsShowVM.trip.end">
+    <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
+</select>
+<p>{{tripsShowVM.trip.start}}</p>
+<button type="button" data-ng-click="tripsShowVM.generateDirections(); toggleDirections = !toggleDirections">Route</button>
+<div data-ng-repeat="destination in tripsShowVM.trip.destinations" data-ng-show="toggleDirections">
   <p>{{destination.name}}</p>
   <p>{{destination.address}}</p>
 </div>
 
 <button type="button" data-ng-click="tripsShowVM.delete()">Delete this trip</button>
+
+<div id="directions-panel"></div>
+<div id="map"></div>
