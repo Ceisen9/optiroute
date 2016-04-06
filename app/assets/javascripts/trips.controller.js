@@ -10,7 +10,7 @@
     ]);
 
     function tripsIndexCtrlFunction(TripFactory, ItineraryFactory, DestinationFactory) {
-      this.trips = TripFactory.all;
+      this.trips = TripFactory.all
       this.destinations = DestinationFactory.all;
       this.newTrip = new TripFactory();
       this.newItinerary = new ItineraryFactory();
