@@ -8,16 +8,16 @@
       .directive("tripForm", [
         "TripFactory",
         "ItineraryFactory",
+        "DestinationFactory",
         "$state",
         tripFormFunc
       ]);
 
-    function tripFormFunc(TripFactory, ItineraryFactory, $state){
+    function tripFormFunc(TripFactory, ItineraryFactory, DestinationFactory, $state){
       return {
         templateUrl: "ng-views/trips.form.html",
         scope: {
           trip: '=',
-          destinations: '='
         },
         link: linkFunc
       };
@@ -42,6 +42,7 @@
           anchorPoint: new google.maps.Point(0, -29)
         });
 
+        scope.destinations = [];
         autocomplete.addListener('place_changed', function() {
           infowindow.close();
           marker.setVisible(false);
@@ -50,6 +51,8 @@
             window.alert("Autocomplete's returned place contains no geometry");
             return;
           } else {
+            scope.destinations.push({address: place.formatted_address, name: place.name});
+            console.log(scope.destinations);
             console.log(place);
           }
 
@@ -100,18 +103,14 @@
       }
 
       scope.create = function(){
-        var destinations = scope.trip.destinations;
         scope.trip.$save().then(function(response) {
-          for (var id in destinations) {
-            if (destinations[id]) {
-              ItineraryFactory.save({trip_id: response.id, destination_id: id}, function(data) {
-                // console.log(data);
-              });
-            }
-          }
-          if(end) {
-            ItineraryFactory.save({trip_id: response.id, destination_id: end});
-          }
+          scope.destinations.forEach(function(destination){
+              console.log(destination);
+              DestinationFactory.save({name: destination.name, address: destination.address})
+                         .then(function(dest_response){
+                            ItineraryFactory.save({trip_id: response.id, destination_id: dest_response.id});
+                         });
+          });
         });
           //   $state.go("tripShow", {}, {reload: true});
       };

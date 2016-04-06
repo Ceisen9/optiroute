@@ -14,7 +14,7 @@ class DestinationsController < ApplicationController
   end
 
   def create
-    @destination = Destination.create!(itinerary_params)
+    @destination = Destination.create!(destination_params)
     render json: @destination, status: :ok
   end
 
