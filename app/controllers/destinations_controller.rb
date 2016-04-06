@@ -13,14 +13,20 @@ class DestinationsController < ApplicationController
     end
   end
 
+  def create
+    @destination = Destination.create!(itinerary_params)
+    render json: @destination, status: :ok
+  end
+
+
   def show
     render json: @destination, status: :ok
   end
 
   # We don't need the following unless destinations become writable
-  #
-  # private
-  # def destination_params
-  #   params.require(:student).permit(:name, :address, :duration, :trip_id)
-  # end
+
+  private
+  def destination_params
+    params.require(:student).permit(:name, :address, :duration, :trip_id)
+  end
 end
