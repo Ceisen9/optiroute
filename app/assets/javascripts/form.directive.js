@@ -23,6 +23,7 @@
       };
 
       function linkFunc(scope){
+        console.log(scope)
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -33.8688, lng: 151.2195},
           zoom: 13
@@ -100,18 +101,22 @@
         setupClickListener('changetype-address', ['address']);
         setupClickListener('changetype-establishment', ['establishment']);
         setupClickListener('changetype-geocode', ['geocode']);
-      }
 
-      scope.create = function(){
-        scope.trip.$save().then(function(response) {
-          scope.destinations.forEach(function(destination){
-              console.log(destination);
-              DestinationFactory.save({name: destination.name, address: destination.address})
-                         .then(function(dest_response){
-                            ItineraryFactory.save({trip_id: response.id, destination_id: dest_response.id});
-                         });
+        scope.create = function(){
+          console.log(scope.trip)
+          TripFactory.save(scope.trip, function(response){
+            console.log(response);
           });
-        });
+        }
+
+        //   scope.destinations.forEach(function(destination){
+        //       console.log(destination);
+        //       DestinationFactory.save({name: destination.name, address: destination.address})
+        //                  .then(function(dest_response){
+        //                     ItineraryFactory.save({trip_id: response.id, destination_id: dest_response.id});
+        //                  });
+        //   });
+        // });
           //   $state.go("tripShow", {}, {reload: true});
       };
     }
