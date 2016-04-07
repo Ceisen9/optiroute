@@ -13,7 +13,7 @@
  *= require_self
  */
 .navidelphia{
- background-color: #26a69a;
+ background-color: #00dffc;
  /*font-style: helvetica;*/
  }
 
@@ -41,6 +41,7 @@
   overflow-y: scroll;
 }*/
 
+
 .spotbox{
   height: 400px;
   /*border: 1px solid gray;*/
@@ -49,13 +50,21 @@
 
 }
 
-#submitbutton{
+#submitbutton {
   display: flex;
   justify-content: center;
+}
 
+#submitbutton > button {
+  background-color: #008c9e;
 }
 
 #radiobuttontext{
   font-size: 1.2rem !important;
   margin: 0 10px;
+}
+
+#routebutton, #deletebutton {
+  margin: 10px;
+  background-color: #008c9e;
 }

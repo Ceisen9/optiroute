@@ -1,4 +1,4 @@
-<nav>
+<nav class="navidelphia">
   <div class="nav-wrapper">
     <a data-ui-sref="tripsIndex" class="brand-logo">OptiRoute</a>
     <ul class="right hide-on-med-and-down">
@@ -10,14 +10,12 @@
 <div id="modal2" class="modal bottom-sheet">
   <div class="modal-content">
     <h4>Directions</h4>
-    <div class="collection">
-      <ul class="directions-panel"></ul>
-
-    </div>
+    <div id="directions-panel"></div>
   </div>
 </div>
-
-<h3> {{tripsShowVM.trip.name}} </h3>
+<div class="row">
+<div class="col s3">
+  <h3> {{tripsShowVM.trip.name}} </h3>
   <label>Choose Start Point</label>
   <select class="browser-default" data-ng-model="tripsShowVM.trip.start">
     <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
@@ -28,13 +26,10 @@
     <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
   </select>
 
-<p>{{tripsShowVM.trip.start}}</p>
-<button type="button" data-ng-click="tripsShowVM.generateDirections(); toggleDirections = !toggleDirections">Route</button>
-<div data-ng-repeat="destination in tripsShowVM.trip.destinations" data-ng-show="toggleDirections">
-  <p>{{destination.name}}</p>
-  <p>{{destination.address}}</p>
+  <button type="button" id="routebutton" class="col s6 btn btn-primary btn-block" data-ng-click="tripsShowVM.generateDirections(); toggleDirections = !toggleDirections">Route</button>
+  <button type="button" id="deletebutton" class=" col s4 btn btn-primary btn-block right" data-ng-click="tripsShowVM.delete()">Delete</button>
 </div>
 
-<button type="button" data-ng-click="tripsShowVM.delete()">Delete this trip</button>
 
-<div id="map"></div>
+<div class="col s9" id="map"></div>
+</div>
