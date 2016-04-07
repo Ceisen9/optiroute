@@ -22,11 +22,9 @@
         itineraries.forEach(function(itinerary) {
           //loop through all trips
           TripFactory.all.$promise.then(function(trips) {
-            console.log(trips);
             trips.forEach(function(trip) {
               //create a destinations attribute for each trip
               trip.destinations = [];
-              console.log(trip);
               //find all instances of the current trip in the itinerary
               if (trip.id == itinerary.trip_id) {
                 //for that trip find all destinations that have the corresponding destination_id
