@@ -26,6 +26,12 @@
     <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
   </select>
 
+  <div class="spotbox">
+    <ul id="spots" class="collection" >
+      <li class='collection-item' data-ng-repeat="destination in tripsShowVM.trip.destinations">{{destination.name}}</li>
+    </ul>
+  </div>
+
   <button type="button" id="routebutton" class="col s6 btn btn-primary btn-block" data-ng-click="tripsShowVM.generateDirections(); toggleDirections = !toggleDirections">Route</button>
   <button type="button" id="deletebutton" class=" col s4 btn btn-primary btn-block right" data-ng-click="tripsShowVM.delete()">Delete</button>
 </div>
