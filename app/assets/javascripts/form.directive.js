@@ -25,7 +25,8 @@
       function linkFunc(scope){
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 38.901052, lng: -77.031325},
-          zoom: 12
+          zoom: 12,
+          scrollwheel: false
         });
         var input = document.getElementById('pac-input');
         var types = document.getElementById('type-selector');
@@ -103,10 +104,9 @@
               DestinationFactory.save(destination, function(data){
                 ItineraryFactory.save({trip_id: response.id, destination_id: data.id}, function() {
                   count += 1;
-                  console.log(count);
-                  console.log(scope.destinations.length);
                   if (count === scope.destinations.length) {
-                    console.log("last item saved");
+                    response.destinations = scope.destinations;
+                    TripFactory.all.push(response);
                     $state.go("tripsShow", {id: response.id});
                   }
                 });
