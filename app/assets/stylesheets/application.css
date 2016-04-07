@@ -21,12 +21,12 @@
   /*width: 900px;*/
 }
 
-#directions-panel {
+/*#directions-panel {
   height: 500px;
   width: 300px;
   float: right;
   overflow-y: scroll;
-}
+}*/
 
 .spotbox{
   height: 300px;
@@ -39,7 +39,7 @@
 #submitbutton{
   display: flex;
   justify-content: center;
-  
+
 }
 
 #radiobuttontext{

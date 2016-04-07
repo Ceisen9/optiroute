@@ -1,14 +1,33 @@
-<h1> Trip show page </h1>
+<nav>
+  <div class="nav-wrapper">
+    <a data-ui-sref="tripsIndex" class="brand-logo">OptiRoute</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="waves-effect waves-light modal-trigger" href="#modal2">Directions</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="modal2" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Directions</h4>
+    <div class="collection">
+      <ul class="directions-panel"></ul>
+
+    </div>
+  </div>
+</div>
 
 <h3> {{tripsShowVM.trip.name}} </h3>
-<h4>Start</h4>
-<select id="waypoints" data-ng-model="tripsShowVM.trip.start">
+  <label>Choose Start Point</label>
+  <select class="browser-default" data-ng-model="tripsShowVM.trip.start">
     <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
-</select>
-<h4>End</h4>
-<select id="waypoints" data-ng-model="tripsShowVM.trip.end">
+  </select>
+
+  <label>Choose End Point</label>
+  <select class="browser-default" data-ng-model="tripsShowVM.trip.end">
     <option data-ng-repeat="destination in tripsShowVM.trip.destinations" value={{destination.address}}>{{destination.name}}</option>
-</select>
+  </select>
+
 <p>{{tripsShowVM.trip.start}}</p>
 <button type="button" data-ng-click="tripsShowVM.generateDirections(); toggleDirections = !toggleDirections">Route</button>
 <div data-ng-repeat="destination in tripsShowVM.trip.destinations" data-ng-show="toggleDirections">
@@ -18,5 +37,4 @@
 
 <button type="button" data-ng-click="tripsShowVM.delete()">Delete this trip</button>
 
-<div id="directions-panel"></div>
 <div id="map"></div>
