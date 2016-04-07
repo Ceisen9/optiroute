@@ -108,10 +108,9 @@
               DestinationFactory.save(destination, function(data){
                 ItineraryFactory.save({trip_id: response.id, destination_id: data.id}, function() {
                   count  += 1
-                  console.log(count);
-                  console.log(scope.destinations.length);
                   if (count === scope.destinations.length) {
-                    console.log("last item saved");
+                    response.destinations = scope.destinations;
+                    TripFactory.all.push(response);
                     $state.go("tripsShow", {id: response.id});
                   }
                 });
