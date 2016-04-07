@@ -24,8 +24,8 @@
 
       function linkFunc(scope){
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13
+          center: {lat: 38.901052, lng: -77.031325},
+          zoom: 12
         });
         var input = document.getElementById('pac-input');
 
@@ -52,8 +52,7 @@
             return;
           } else {
             scope.destinations.push({address: place.formatted_address, name: place.name});
-            console.log(scope.destinations);
-            console.log(place);
+            // console.log(scope.destinations);
           }
 
           // If the place has a geometry, present it on the map.
@@ -100,18 +99,34 @@
         setupClickListener('changetype-address', ['address']);
         setupClickListener('changetype-establishment', ['establishment']);
         setupClickListener('changetype-geocode', ['geocode']);
-      }
 
-      scope.create = function(){
-        scope.trip.$save().then(function(response) {
-          scope.destinations.forEach(function(destination){
-              console.log(destination);
-              DestinationFactory.save({name: destination.name, address: destination.address})
-                         .then(function(dest_response){
-                            ItineraryFactory.save({trip_id: response.id, destination_id: dest_response.id});
-                         });
+        scope.create = function(){
+          var count = 0;
+          TripFactory.save(scope.trip, function(response){
+            scope.destinations.forEach(function(destination){
+              DestinationFactory.save(destination, function(data){
+                ItineraryFactory.save({trip_id: response.id, destination_id: data.id}, function() {
+                  count  += 1
+                  console.log(count);
+                  console.log(scope.destinations.length);
+                  if (count === scope.destinations.length) {
+                    console.log("last item saved");
+                    $state.go("tripsShow", {id: response.id});
+                  }
+                });
+              });
+            });
           });
-        });
+        }
+
+        //   scope.destinations.forEach(function(destination){
+        //       console.log(destination);
+        //       DestinationFactory.save({name: destination.name, address: destination.address})
+        //                  .then(function(dest_response){
+        //                     ItineraryFactory.save({trip_id: response.id, destination_id: dest_response.id});
+        //                  });
+        //   });
+        // });
           //   $state.go("tripShow", {}, {reload: true});
       };
     }

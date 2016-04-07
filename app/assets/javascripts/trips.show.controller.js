@@ -14,16 +14,16 @@
   function tripsShowCtrlFunction(TripFactory, $state, $stateParams) {
     var tripsShowVM = this;
     TripFactory.all.$promise.then(function(){
-
       TripFactory.all.forEach(function(trip) {
+        console.log(trip)
         if(trip.id == $stateParams.id) {
           tripsShowVM.trip = trip;
+          console.log(trip);
         }
       });
     });
 
     tripsShowVM.delete = function() {
-      tripsShowVM.trip = TripFactory.get({id: $stateParams.id});
 
       TripFactory.all.splice($stateParams.id, 1);
       tripsShowVM.trip.$delete({id: $stateParams.id}).then(function() {
