@@ -30,8 +30,8 @@
         var input = document.getElementById('pac-input');
 
         var types = document.getElementById('type-selector');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', map);
@@ -52,6 +52,7 @@
             return;
           } else {
             scope.destinations.push({address: place.formatted_address, name: place.name});
+            $("#spots").append("<li class='collection-item'>"+ place.name +"</li>")
             // console.log(scope.destinations);
           }
 

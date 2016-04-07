@@ -13,9 +13,12 @@
  *= require_self
  */
 
+.right{
+  height: 10vh;
+}
 #map {
-  height: 600px;
-  width: 600px;
+  height: 88vh;
+  /*width: 900px;*/
 }
 
 #directions-panel {
@@ -23,4 +26,22 @@
   width: 300px;
   float: right;
   overflow-y: scroll;
+}
+
+.spotbox{
+  height: 300px;
+  /*border: 1px solid gray;*/
+  margin: 10px 0;
+  overflow-y: scroll;
+
+}
+
+#submitbutton{
+  display: flex;
+  justify-content: center;
+  
+}
+
+#radiobuttontext{
+  font-size: 1.2rem !important;
 }

@@ -1,29 +1,37 @@
-<div data-ng-switch="formMethod">
-  <h2 data-ng-switch-when="edit">Edit this Trip</h2>
-  <h2 data-ng-switch-default>Create your Trip</h2>
+<div class="col s3">
+  <div data-ng-switch="formMethod">
+    <h2 data-ng-switch-when="edit">Edit this Trip</h2>
+    <h2 data-ng-switch-default>Create your Trip</h2>
+  </div>
+
+  <input type="text" placeholder="Enter a trip name" data-ng-model="trip.name">
+  <input id="pac-input" class="controls" type="text"
+  placeholder="Enter a location">
+  <div id="type-selector" class="controls">
+
+
+    <div id="type-selector" class="controls">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label id="radiobuttontext" for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-establishment">
+      <label id="radiobuttontext" for="changetype-establishment">Establishments</label>
+
+      <input type="radio" name="type" id="changetype-address">
+      <label id="radiobuttontext" for="changetype-address">Addresses</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label id="radiobuttontext" for="changetype-geocode">Geocodes</label>
+    </div>
+    <div class="spotbox">
+      <ul id="spots" class="collection">
+      </ul>
+    </div>
+
+    <div data-ng-switch="formMethod" id="submitbutton">
+      <button data-ng-switch-default type="button"  class="btn btn-primary btn-block" data-ng-click="create()">Submit</button>
+    </div>
+  </div>
 </div>
 
-
-<input type="text" placeholder="Enter a trip name" data-ng-model="trip.name">
-<input id="pac-input" class="controls" type="text"
-	placeholder="Enter a location">
-<div id="type-selector" class="controls">
-  <input type="radio" name="type" id="changetype-all" checked="checked">
-  <label for="changetype-all">All</label>
-
-  <input type="radio" name="type" id="changetype-establishment">
-  <label for="changetype-establishment">Establishments</label>
-
-  <input type="radio" name="type" id="changetype-address">
-  <label for="changetype-address">Addresses</label>
-
-  <input type="radio" name="type" id="changetype-geocode">
-  <label for="changetype-geocode">Geocodes</label>
-</div>
-
-<div id="map"></div>
-
-<div data-ng-switch="formMethod">
-  <button data-ng-switch-when="edit" type="button" class="btn btn-primary btn-block" data-ng-click="update()">Edit</button>
-  <button data-ng-switch-default type="button" class="btn btn-primary btn-block" data-ng-click="create()">Submit</button>
-</div>
+<div class="col s9" id="map"></div>
