@@ -12,9 +12,22 @@
  *
  *= require_self
  */
+.navidelphia{
+ background-color: #26a69a;
+ /*font-style: helvetica;*/
+ }
+
+ #tripCreate{
+   font-size: 1.5rem;
+   margin: 10px 0 20px 0;
+ }
+
+.nav-wrapper{
+  margin: 0 20px;
+}
 
 .right{
-  height: 10vh;
+    height: 10vh;
 }
 #map {
   height: 88vh;
@@ -29,7 +42,7 @@
 }*/
 
 .spotbox{
-  height: 300px;
+  height: 400px;
   /*border: 1px solid gray;*/
   margin: 10px 0;
   overflow-y: scroll;
@@ -44,4 +57,5 @@
 
 #radiobuttontext{
   font-size: 1.2rem !important;
+  margin: 0 10px;
 }
