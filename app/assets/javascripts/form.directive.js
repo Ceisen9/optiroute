@@ -29,11 +29,7 @@
           scrollwheel: false
         });
         var input = document.getElementById('pac-input');
-
         var types = document.getElementById('type-selector');
-        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', map);
 
@@ -54,7 +50,6 @@
           } else {
             scope.destinations.push({address: place.formatted_address, name: place.name});
             $("#spots").append("<li class='collection-item'>"+ place.name +"</li>")
-            // console.log(scope.destinations);
           }
 
           // If the place has a geometry, present it on the map.
@@ -108,7 +103,7 @@
             scope.destinations.forEach(function(destination){
               DestinationFactory.save(destination, function(data){
                 ItineraryFactory.save({trip_id: response.id, destination_id: data.id}, function() {
-                  count  += 1
+                  count += 1;
                   if (count === scope.destinations.length) {
                     response.destinations = scope.destinations;
                     TripFactory.all.push(response);
@@ -118,17 +113,7 @@
               });
             });
           });
-        }
-
-        //   scope.destinations.forEach(function(destination){
-        //       console.log(destination);
-        //       DestinationFactory.save({name: destination.name, address: destination.address})
-        //                  .then(function(dest_response){
-        //                     ItineraryFactory.save({trip_id: response.id, destination_id: dest_response.id});
-        //                  });
-        //   });
-        // });
-          //   $state.go("tripShow", {}, {reload: true});
-      };
+        };
+      }
     }
 })();
