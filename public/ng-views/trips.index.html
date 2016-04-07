@@ -11,7 +11,7 @@
   <div class="modal-content">
     <h4>Trips</h4>
     <ul class="collection directions-panel" >
-      <li class="collection-item" data-ng-repeat="trip in tripsIndexVM.trips | orderBy:'-created_at'">
+      <li id="{{trip.id}}a" class="collection-item" data-ng-repeat="trip in tripsIndexVM.trips | orderBy:'-created_at'">
         <span class="title modal-close"><a data-ui-sref="tripsShow({id: trip.id})">{{trip.name}}</a></span>
       </li>
     </ul>

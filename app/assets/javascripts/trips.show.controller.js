@@ -22,15 +22,16 @@
     });
 
     tripsShowVM.delete = function() {
-
       TripFactory.all.splice($stateParams.id, 1);
       tripsShowVM.trip.$delete({id: $stateParams.id}).then(function() {
         $state.go("tripsIndex", {}, {reload: true});
       });
+
     }
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 38.901052, lng: -77.031325},
-      zoom: 10
+      zoom: 10,
+      scrollwheel: false
     });
     tripsShowVM.generateDirections = function() {
 
@@ -66,13 +67,11 @@
 
       }, 100);
     }
-      $('.modal-trigger').leanModal({
+    $('.modal-trigger').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: .5, // Opacity of modal background
       in_duration: 300, // Transition in duration
       out_duration: 200, // Transition out duration
-      ready: function() { alert('Ready'); }, // Callback for Modal open
-      complete: function() { alert('Closed'); } // Callback for Modal close
     }
   );
 
