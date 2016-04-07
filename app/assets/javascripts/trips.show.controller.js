@@ -1,5 +1,3 @@
-//= require map
-
 "use strict";
 
 (function() {
@@ -37,8 +35,6 @@
 
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
-
-
       directionsDisplay.setMap(map);
       directionsDisplay.setPanel(document.getElementById("directions-panel"));
 
