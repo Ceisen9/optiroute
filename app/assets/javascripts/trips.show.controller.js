@@ -15,10 +15,8 @@
     var tripsShowVM = this;
     TripFactory.all.$promise.then(function(){
       TripFactory.all.forEach(function(trip) {
-        console.log(trip)
         if(trip.id == $stateParams.id) {
           tripsShowVM.trip = trip;
-          console.log(trip);
         }
       });
     });
@@ -48,13 +46,10 @@
       setTimeout(function() {
 
         tripsShowVM.trip.destinations.forEach(function(destination) {
-          if (destination.address !== tripsShowVM.trip.start || destination.address !== tripsShowVM.trip.end) {
+          if (destination.address !== tripsShowVM.trip.start && destination.address !== tripsShowVM.trip.end) {
             waypoints.push({location: destination.address});
           }
         });
-        // console.log(tripsShowVM.trip.start);
-        // console.log(tripsShowVM.trip.end);
-
 
         directionsService.route({
           origin: tripsShowVM.trip.start,
@@ -71,7 +66,16 @@
 
       }, 100);
     }
+      $('.modal-trigger').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      ready: function() { alert('Ready'); }, // Callback for Modal open
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
 
 
-  }
+}
 })();
