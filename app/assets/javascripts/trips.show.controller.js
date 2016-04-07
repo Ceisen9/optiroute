@@ -1,5 +1,3 @@
-//= require map
-
 "use strict";
 
 (function() {
@@ -24,7 +22,9 @@
     tripsShowVM.delete = function() {
       TripFactory.all.splice($stateParams.id, 1);
       tripsShowVM.trip.$delete({id: $stateParams.id}).then(function() {
-        $state.go("tripsIndex", {}, {reload: true});
+        TripFactory.all = TripFactory.query(function(){
+          $state.go("tripsIndex", {}, {reload: true});
+        });
       });
 
     }
@@ -37,8 +37,6 @@
 
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
-
-
       directionsDisplay.setMap(map);
       directionsDisplay.setPanel(document.getElementById("directions-panel"));
 
