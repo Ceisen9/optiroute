@@ -23,10 +23,9 @@
       };
 
       function linkFunc(scope){
-        console.log(scope)
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13
+          center: {lat: 38.901052, lng: -77.031325},
+          zoom: 12
         });
         var input = document.getElementById('pac-input');
 
@@ -53,8 +52,7 @@
             return;
           } else {
             scope.destinations.push({address: place.formatted_address, name: place.name});
-            console.log(scope.destinations);
-            console.log(place);
+            // console.log(scope.destinations);
           }
 
           // If the place has a geometry, present it on the map.
@@ -103,9 +101,21 @@
         setupClickListener('changetype-geocode', ['geocode']);
 
         scope.create = function(){
-          console.log(scope.trip)
+          var count = 0;
           TripFactory.save(scope.trip, function(response){
-            console.log(response);
+            scope.destinations.forEach(function(destination){
+              DestinationFactory.save(destination, function(data){
+                ItineraryFactory.save({trip_id: response.id, destination_id: data.id}, function() {
+                  count  += 1
+                  console.log(count);
+                  console.log(scope.destinations.length);
+                  if (count === scope.destinations.length) {
+                    console.log("last item saved");
+                    $state.go("tripsShow", {id: response.id});
+                  }
+                });
+              });
+            });
           });
         }
 
