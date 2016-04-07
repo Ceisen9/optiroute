@@ -8,27 +8,28 @@
   <input id="pac-input" class="controls" type="text"
   placeholder="Enter a location">
   <div id="type-selector" class="controls">
-    <input type="radio" name="type" id="changetype-all" checked="checked">
-    <label for="changetype-all">All</label>
 
-    <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
     <div id="type-selector" class="controls">
       <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All</label>
+      <label id="radiobuttontext" for="changetype-all">All</label>
 
       <input type="radio" name="type" id="changetype-establishment">
-      <label for="changetype-establishment">Establishments</label>
+      <label id="radiobuttontext" for="changetype-establishment">Establishments</label>
 
       <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-address">Addresses</label>
+      <label id="radiobuttontext" for="changetype-address">Addresses</label>
 
       <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-geocode">Geocodes</label>
+      <label id="radiobuttontext" for="changetype-geocode">Geocodes</label>
+    </div>
+    <div class="spotbox">
+      <ul id="spots" class="collection">
+      </ul>
     </div>
 
-    <div data-ng-switch="formMethod">
-      <button data-ng-switch-when="edit" type="button" class="btn btn-primary btn-block" data-ng-click="update()">Edit</button>
-      <button data-ng-switch-default type="button" class="btn btn-primary btn-block" data-ng-click="create()">Submit</button>
+    <div data-ng-switch="formMethod" id="submitbutton">
+      <button data-ng-switch-default type="button"  class="btn btn-primary btn-block" data-ng-click="create()">Submit</button>
     </div>
   </div>
 </div>

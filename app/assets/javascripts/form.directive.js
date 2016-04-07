@@ -52,6 +52,7 @@
             return;
           } else {
             scope.destinations.push({address: place.formatted_address, name: place.name});
+            $("#spots").append("<li class='collection-item'>"+ place.name +"</li>")
             // console.log(scope.destinations);
           }
 
