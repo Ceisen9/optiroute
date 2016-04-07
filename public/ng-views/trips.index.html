@@ -1,10 +1,24 @@
-<h1> These are some Trips</h1>
+<nav>
+  <ul class="right hide-on-med-and-down">
+    <li><a class="waves-effect waves-light modal-trigger" href="#modal1">Past Trips</a></li>
+  </ul>
+</nav>
 
-<div data-ng-repeat="trip in tripsIndexVM.trips | orderBy:'-created_at'">
+<!-- <div data-ng-repeat="trip in tripsIndexVM.trips | orderBy:'-created_at'">
   <p><a data-ui-sref="tripsShow({id: trip.id})">{{trip.name}}</a></p>
-  <!-- <p>{{trip.name}}</p> -->
+</div> -->
+
+<div id="modal1" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Trips</h4>
+    <ul class="collection" >
+      <li class="collection-item" data-ng-repeat="trip in tripsIndexVM.trips | orderBy:'-created_at'">
+        <span class="title modal-close"><a data-ui-sref="tripsShow({id: trip.id})">{{trip.name}}</a></span>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<h2> New Trip </h2>
-
-<div data-trip-form data-trip="tripsIndexVM.newTrip" data-destinations="tripsIndexVM.destinations"></div>
+<!-- <div class="container"> -->
+  <div class="row" data-trip-form data-trip="tripsIndexVM.newTrip" data-destinations="tripsIndexVM.destinations"></div>
+<!-- </div> -->

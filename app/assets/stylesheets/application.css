@@ -13,9 +13,12 @@
  *= require_self
  */
 
+right{
+  height: 10vh;
+}
 #map {
-  height: 600px;
-  width: 600px;
+  height: 90vh;
+  /*width: 900px;*/
 }
 
 #directions-panel {
