@@ -35,6 +35,7 @@ class TripsController < ApplicationController
   def add_destination
     if params[:destination_id]
       @destination = Destination.find(params[:destination_id])
+      # JGZ - This is well done getting the many-many set up!
       @trip.itineraries.create!(destination: @destination)
     end
   end
