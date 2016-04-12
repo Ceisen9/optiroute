@@ -1,6 +1,6 @@
 # Project 3 Evaluation
 
-[inline code comments]()
+[inline code comments](https://github.com/Ceisen9/optiroute/pull/40/files)
 
 ## Back-end Technology
 **3: Excelling**
