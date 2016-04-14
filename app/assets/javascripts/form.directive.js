@@ -49,7 +49,8 @@
             return;
           } else {
             scope.destinations.push({address: place.formatted_address, name: place.name});
-            $("#spots").append("<li class='collection-item'>"+ place.name +"</li>")
+            $("#spots").append("<li class='collection-item'>"+ place.name +"</li>");
+            $("#pac-input").val('')
           }
 
           // If the place has a geometry, present it on the map.
