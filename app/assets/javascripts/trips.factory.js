@@ -15,6 +15,8 @@
         update: {method: 'PUT'}
       });
 
+// JGZ - really like/appreciate the commenting on the below!
+// JGZ - having nexted forEach loops isn't ideal I'm sure, but i think the way it's set up to totally fine
 
       //create destinations attribue on each trip and populate with the correct destinations
       //loop through itinerary

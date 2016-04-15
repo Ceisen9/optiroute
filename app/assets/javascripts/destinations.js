@@ -1,3 +1,6 @@
+// JGZ - Doesn't look like this is being used at all actually, am I wrong?
+// I'm seeing a route in optiroute.js, but no view.
+
 "use strict";
 
 (function() {

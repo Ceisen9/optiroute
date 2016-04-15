@@ -28,6 +28,8 @@
       });
 
     }
+
+    // JGZ - I'm not 100% sure how to do this yet, but I'm feeling like rendering maps should be moved into a directive
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 38.901052, lng: -77.031325},
       zoom: 10,
